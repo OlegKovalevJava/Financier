@@ -2,10 +2,12 @@ package com.project.financier;
 
 import com.project.financier.model.TransferBalance;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
+@Slf4j
 @RestController("/balance")
 @AllArgsConstructor
 public class BalanceController {
@@ -28,5 +30,10 @@ public class BalanceController {
 
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String handler(IllegalArgumentException e){
+        log.error(e.getMessage());
+        return "ERROR";
+    }
 
 }
