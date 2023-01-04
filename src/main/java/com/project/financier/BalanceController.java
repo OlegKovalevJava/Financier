@@ -31,7 +31,7 @@ public class BalanceController {
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public String handler(IllegalArgumentException e){
+    public String handler(IllegalArgumentException e) {
         log.error(e.getMessage());
         return "ERROR";
     }
